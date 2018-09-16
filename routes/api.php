@@ -32,7 +32,7 @@ Route::middleware('auth:api')->group(function(){
     Route::post('/logout','AuthController@logout');
 
 });
-
+//===================rutas de categoria============================
 Route::get('/category','CategoryController@index');
 Route::post('/category','CategoryController@store');
 Route::patch('/category/{category}','CategoryController@update');
@@ -40,4 +40,11 @@ Route::delete('/category/{category}', 'CategoryController@destroy');
 Route::post('/addParent', 'CategoryController@addParent');
 Route::get('/category/{category}','CategoryController@byId');
 
+//==================================================================
+
+//====================ruta de productos=============================
+Route::get('/product','ProductController@index');
+Route::post('/product','ProductController@store');
+Route::patch('/product/{category}','ProductController@update');
+Route::delete('/product/{category}', 'ProductController@destroy');
 
