@@ -15,8 +15,8 @@ class CreateAttributeValuesTable extends Migration
     {
         Schema::create('attribute_values', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('product');
+            // $table->integer('product_id')->unsigned();
+            // $table->foreign('product_id')->references('id')->on('product');
             $table->integer('attribute_id')->unsigned();
             $table->foreign('attribute_id')->references('id')->on('attributes');
             $table->integer('value_id')->unsigned();

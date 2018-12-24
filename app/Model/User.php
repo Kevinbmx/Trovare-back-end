@@ -45,5 +45,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function products(){
+        return $this->hasMany('App\model\Product');
+    }
    
 }

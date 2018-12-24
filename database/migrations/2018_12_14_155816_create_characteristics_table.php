@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlendAttributeValuesTable extends Migration
+class CreateCharacteristicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBlendAttributeValuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('blend_attribute_values', function (Blueprint $table) {
+        Schema::create('characteristics', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('characteristic');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('product');
-            $table->integer('atributoValor_id');
-            $table->integer('atributoValorB_id')->nullable()->default(null);
-            $table->uuid('uniqueCode');
-           
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateBlendAttributeValuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blend_attribute_values');
+        Schema::dropIfExists('characteristics');
     }
 }

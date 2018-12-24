@@ -30,6 +30,8 @@ Route::middleware('auth:api')->group(function(){
         return $request->user();
     });
     Route::post('/logout','AuthController@logout');
+    Route::get('/product','ProductController@index');
+Route::post('/product','ProductController@store');
 
 });
 //===================rutas de categoria============================
@@ -43,8 +45,37 @@ Route::get('/category/{category}','CategoryController@byId');
 //==================================================================
 
 //====================ruta de productos=============================
-Route::get('/product','ProductController@index');
-Route::post('/product','ProductController@store');
+
 Route::patch('/product/{category}','ProductController@update');
 Route::delete('/product/{category}', 'ProductController@destroy');
+
+//==================================================================
+
+//====================ruta de attributos============================
+Route::post('/attribute','AttributeController@store');
+
+
+
+//==================================================================
+
+//======================ruta de valores=============================
+Route::get('/value','ValueController@index');
+Route::post('/value','ValueController@store');
+
+
+//====================ruta de blend attribute value==========================
+Route::post('/blendAttributeValue','BlendAttributeValueController@store');
+
+
+//=========================================================================
+
+//====================ruta de attributo valores=============================
+Route::post('/attributeValue','AttributeValueController@store');
+
+
+//=========================================================================
+
+//====================ruta de estados de producto==========================
+Route::get('/statusProduct','StatusProductController@index');
+
 
